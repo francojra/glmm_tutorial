@@ -5,4 +5,23 @@
 
 # Conceito glmm ----------------------------------------------------------------------------------------------------------------------------
 
+## Na análise glmm nós temos efeitos fixos e aleatórios. Efeito fixo se entende como as variáveis preditoras,
+## e o efeito aleatório é a variável que agrupa nossos dados e seu efeito na variável resposta não interessa
+## diretamente, mas temos que contabilizar.
+
+## No exemplo temos a variável resposta riqueza de espécies herbáceas e precisamos avaliar o efeito
+## de caracteres funcionais sobre a riqueza de herbáceas, juntamente com o efeito aleatório da parcela. 
+## Portanto, vamos considerar localização como um efeito aleatório.
+
+## Como riqueza é uma variável de contagem, vamos utilizar a família Poisson no modelo.
+
+# Baixar pacotes ---------------------------------------------------------------------------------------------------------------------------
+
+library(lme4)
+library(lattice)
+
+# Carregar dados ---------------------------------------------------------------------------------------------------------------------------
+
+dados <- read.table("tab_final.txt", h = T)
+View(dados)
 

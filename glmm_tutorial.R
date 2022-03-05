@@ -65,7 +65,7 @@ praia08 <- aleatorio[8,1] + aleatorio[8,2] * seqNAP
 praia09 <- aleatorio[9,1] + aleatorio[9,2] * seqNAP
 praiaFixo <- fixo[1] + fixo[2] * seqNAP
 
-# Estimativas por ponto
+# Estimativas por ponto - Devemos exponenciar, pois os valores antetiores estão em log
 
 praia01a <- exp(praia01)
 praia02a <- exp(praia02)
@@ -77,3 +77,26 @@ praia07a <- exp(praia07)
 praia08a <- exp(praia08) 
 praia09a <- exp(praia09)
 praiaFixa <- exp(praiaFixo)
+
+# Gráfico ----------------------------------------------------------------------------------------------------------------------------------
+
+cores <- rainbow(9) # Selecionar 9 cores, uma para cada praia
+
+par(mar = c(5,5,2,2))
+plot(Richness ~ NAP, data = dados, pch = 19, 
+     col = cores[as.factor(Beach)], las = 1, cex = 1.5, 
+     cex.lab = 1.5, cex.axis = 1.5, xlim = c(-1.5, 2.5))
+
+lines(praia01a ~ seqNAP, col = cores[1])
+lines(praia02a ~ seqNAP, col = cores[2])
+lines(praia03a ~ seqNAP, col = cores[3])
+lines(praia04a ~ seqNAP, col = cores[4])
+lines(praia05a ~ seqNAP, col = cores[5])
+lines(praia06a ~ seqNAP, col = cores[6])
+lines(praia07a ~ seqNAP, col = cores[7])
+lines(praia08a ~ seqNAP, col = cores[8])
+lines(praia09a ~ seqNAP, col = cores[9])
+lines(praiaFixa ~ seqNAP, col = rgb(0,0,0,0.5), lwd = 5)
+
+legend("topright", c("Praia média", paste("Praia", 1:9)), lty = 1, col = c(1,cores), 
+       bty = "n", cex = 1.5)

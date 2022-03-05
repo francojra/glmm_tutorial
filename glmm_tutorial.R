@@ -87,6 +87,8 @@ plot(Richness ~ NAP, data = dados, pch = 19,
      col = cores[as.factor(Beach)], las = 1, cex = 1.5, 
      cex.lab = 1.5, cex.axis = 1.5, xlim = c(-1.5, 2.5))
 
+# Adiciona linhas dos efeitos aleatórios de cada praia e fixos do NAP
+
 lines(praia01a ~ seqNAP, col = cores[1])
 lines(praia02a ~ seqNAP, col = cores[2])
 lines(praia03a ~ seqNAP, col = cores[3])

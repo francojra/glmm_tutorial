@@ -19,20 +19,14 @@
 
 library(lme4)
 library(lattice) # Pacote para funções auxiliares
-library(dplyr)
 
 # Carregar dados ---------------------------------------------------------------------------------------------------------------------------
 
-dados <- read.table("tab_final.txt", h = T)
+dados <- read.table("http://labtrop.ib.usp.br/lib/exe/fetch.php?media=cursos:planeco:roteiro:praia.txt", h = T)
 View(dados)
-
-# Selecionar variáveis ---------------------------------------------------------------------------------------------------------------------
-
-d <- dados %>%
-  select(riq, trat, plot)
-View(d)
 
 # Análise ----------------------------------------------------------------------------------------------------------------------------------
 
-modelo <- glmer(riq ~ trat + (1|plot), family = 'poisson', data = d)
+modelo <- glmer(Richness ~ NAP + (1|Beach), family = 'poisson', data = dados)
 summary(modelo)
+

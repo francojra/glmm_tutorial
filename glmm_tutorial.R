@@ -102,3 +102,14 @@ lines(praiaFixa ~ seqNAP, col = rgb(0,0,0,0.5), lwd = 5)
 
 legend("topright", c("Praia média", paste("Praia", 1:9)), lty = 1, col = c(1,cores), 
        bty = "n", cex = 1.5)
+
+# Avaliando os resíduos do modelo ----------------------------------------------------------------------------------------------------------
+
+install.packages("DHARMa")
+library(DHARMa)
+
+residuos <- simulateResiduals(fittedModel = modelo, n = 1000) # Simula os resíduos 1000 vezes
+
+plot(residuos)
+
+## Interpretação: o modelo parece ok, pois nenhum teste deu significativo.

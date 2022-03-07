@@ -7,7 +7,7 @@
 
 ## Etapas do script
 
-1. Conceito glmm ;
+1. Conceito glmm;
 2. Baixar pacotes;
 3. Carregar dados;
 4. Análise;
